@@ -10,26 +10,30 @@ const git = gitExtension.getAPI(1);
 function activate(context) {
     console.log("Foul Tarnished!");
     const repo = git.repositories[0];
-    let ahead = repo.state.HEAD?.ahead ?? 0;
+
+    let ahead = 0;
+    if (repo.state && repo.state.HEAD && repo.state.HEAD.ahead)
+        ahead = repo.state.HEAD.ahead;
 
     // Commit
     repo.onDidCommit(() => {
+        if (!repo || !repo.state.HEAD) return;
+
         showMessage(context, "CHANGE COMMITTED", "goldenrod", "save");
     });
 
     // Checkout
     repo.onDidCheckout(() => {
-        showMessage(
-            context,
-            git.repositories[0].state.HEAD.name,
-            "white",
-            "info",
-        );
+        if (!repo || !repo.state.HEAD) return;
+
+        showMessage(context, repo.state.HEAD.name, "white", "info");
     });
 
     // Push
     repo.state.onDidChange(() => {
-        const latest = repo.state.HEAD?.ahead ?? 0;
+        if (!repo || !repo.state.HEAD) return;
+
+        const latest = repo.state.HEAD.ahead ?? 0;
         if (ahead > 0 && latest == 0) {
             showMessage(context, "COMMIT PUSHED", "goldenrod", "success");
         }
