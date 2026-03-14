@@ -6,6 +6,11 @@
         "type": "git",
         "url": "https://github.com/aTylerRobertson/git-gud"
     },
+    "author": {
+        "name": "Tyler Robertson",
+        "url": "https://aTylerRobertson.com"
+    },
+    "license": "MIT",
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.110.0"
