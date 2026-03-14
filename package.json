@@ -11,6 +11,7 @@
         "name": "Tyler Robertson",
         "url": "https://aTylerRobertson.com"
     },
+    "publisher": "TylerRobertson",
     "license": "MIT",
     "version": "0.0.1",
     "engines": {
