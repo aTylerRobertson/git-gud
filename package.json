@@ -2,6 +2,10 @@
     "name": "git-gud",
     "displayName": "Git Gud",
     "description": "Show Elden Ring-style messages when you commit code",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/aTylerRobertson/git-gud"
+    },
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.110.0"
