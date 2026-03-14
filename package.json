@@ -1,0 +1,30 @@
+{
+    "name": "git-gud",
+    "displayName": "Git Gud",
+    "description": "Show Elden Ring-style messages when you commit code",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.110.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "extensionDependencies": [
+        "vscode.git"
+    ],
+    "main": "./src/extension.js",
+    "contributes": {},
+    "scripts": {
+        "lint": "eslint ."
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.110.0",
+        "eslint": "^9.39.3"
+    },
+    "dependencies": {
+        "play-sound": "^1.1.6"
+    }
+}
