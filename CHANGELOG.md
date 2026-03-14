@@ -1,8 +1,12 @@
 # Change Log
 
-All notable changes to the "elden-ring-commit-message" extension will be documented in this file.
+All notable changes to the "git-gud" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+
+## [0.0.2]
+
+- Fixes an issue with missing state on startup
 
 ## [0.0.1]
 
