@@ -12,26 +12,26 @@ function activate(context) {
     const repo = git.repositories[0];
 
     let ahead = 0;
-    if (repo.state && repo.state.HEAD && repo.state.HEAD.ahead)
+    if (repo && repo.state && repo.state.HEAD && repo.state.HEAD.ahead)
         ahead = repo.state.HEAD.ahead;
 
     // Commit
     repo.onDidCommit(() => {
-        if (!repo || !repo.state.HEAD) return;
+        if (!repo || !repo.state || !repo.state.HEAD) return;
 
         showMessage(context, "CHANGE COMMITTED", "goldenrod", "save");
     });
 
     // Checkout
     repo.onDidCheckout(() => {
-        if (!repo || !repo.state.HEAD) return;
+        if (!repo || !repo.state || !repo.state.HEAD) return;
 
         showMessage(context, repo.state.HEAD.name, "white", "info");
     });
 
     // Push
     repo.state.onDidChange(() => {
-        if (!repo || !repo.state.HEAD) return;
+        if (!repo || !repo.state || !repo.state.HEAD) return;
 
         const latest = repo.state.HEAD.ahead ?? 0;
         if (ahead > 0 && latest == 0) {
